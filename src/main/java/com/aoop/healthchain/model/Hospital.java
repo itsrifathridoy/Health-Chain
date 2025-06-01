@@ -84,7 +84,7 @@ public class Hospital {
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """;
 
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+        try (PreparedStatement stmt = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, hospital.name());
             stmt.setString(2, hospital.email());
             stmt.setString(3, hospital.phone());
